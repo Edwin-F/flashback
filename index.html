@@ -2,15 +2,19 @@
 <html>
   <head>
     <title>Flashback</title>
-    <!--add bable to project using cdn -wiki it-->
+    <!--add bable to project using cdn-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
-    <!--additional reac and reac-dom libraries-->
+    <!--additional react and react-dom libraries-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.0.0/umd/react.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.0.0/umd/react-dom.development.js"></script>
     <!-- add css styelsheet-->
     <link rel="stylesheet" type="text/css" href="index.css"></link>
   </head>
   <body>
-    <h1>HELLO WORLD</h1>
+    <div id="app"></div>
+
+    <script type='text/babel'>
+      ReactDOM.render(<h1>HELLO WORLD</h1>, document.getElementById('app'));
+    </script>
   </body>
 </html>
