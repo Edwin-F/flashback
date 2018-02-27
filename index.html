@@ -9,8 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.0.0/umd/react-dom.development.js"></script>
     <!-- add css styelsheet-->
     <link rel="stylesheet" type="text/css" href="index.css"></link>
-    <!--10: -->
-    <!--9: Added constructor to App component, added cardData key and empty variable value to the App component state.-->
+    <!--10: Added lifecycle method and set the card data to the state. Switched the map iteration of the card data to the data in the App component state.-->
+    <!--11: -->
   </head>
   <body>
     <div id="app"></div>
@@ -46,6 +46,11 @@
             cardData: []
           };
         }
+
+        componentDidMount() {
+          this.setState({ cardData: cardData});
+        }
+
         render() {
           return (
             <div className='App'>
@@ -56,7 +61,7 @@
                 An interactive flash cards app.
               </p>
               <div className="card-list">
-                {cardData.map((card, index) => <Card key={index} title={card.title} description={card.description} />)}
+                {this.state.cardData.map((card, index) => <Card key={index} title={card.title} description={card.description} />)}
               </div>
             </div>
           );
