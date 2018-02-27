@@ -9,8 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.0.0/umd/react-dom.development.js"></script>
     <!-- add css styelsheet-->
     <link rel="stylesheet" type="text/css" href="index.css"></link>
-    <!--10: Added lifecycle method and set the card data to the state. Switched the map iteration of the card data to the data in the App component state.-->
-    <!--11: -->
+    <!--12: -->
+    <!--11: Added buttons, and added onClicks with functions. -->
   </head>
   <body>
     <div id="app"></div>
@@ -51,6 +51,14 @@
           this.setState({ cardData: cardData});
         }
 
+        shuffleBackward = () => {
+          console.log('Shuffle Backward!');
+        }
+
+        shuffleForward = () => {
+          console.log('Shuffle Forward!');
+        }
+
         render() {
           return (
             <div className='App'>
@@ -62,6 +70,10 @@
               </p>
               <div className="card-list">
                 {this.state.cardData.map((card, index) => <Card key={index} title={card.title} description={card.description} />)}
+              </div>
+              <div className="buttons">
+                <button onClick={() => this.shuffleBackward()}>&lt;</button>
+                <button onClick={() => this.shuffleForward()}>&gt;</button>
               </div>
             </div>
           );
