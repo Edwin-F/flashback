@@ -9,11 +9,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.0.0/umd/react-dom.development.js"></script>
     <!-- add css styelsheet-->
     <link rel="stylesheet" type="text/css" href="index.css"></link>
+    <!--8: Added card data to app, added map to loop over data to create cards,added key to iteration, added props of title and description to cards.-->
   </head>
   <body>
     <div id="app"></div>
 
     <script type='text/babel'>
+      const cardData = [{
+        title: 'You may know that React was created at Facebook',
+        description: 'React started as a JavaScript port of XHP, a version of PHP which Facebook released four years ago.'
+      }, {
+        title: 'There was a distinct problem with XHP.',
+        description: 'Dynamic web applications require many roundtrips to the server, and XHP did not solve this problem.'
+      }, {
+        title: 'A Facebook engineer wanted to take XHP in-browser with JavaScript.',
+        description: 'He negotiated with his manager and was granted six months to try it.\n\nThe result is ReactJS.'
+      }, {
+        title: 'That engineer is Jordan Walke.',
+        description: 'The concept of React was born from Angular and XHP, and HTML component framework for PHP.'
+      }, {
+        title: 'React was first deployed on Facebook\'s News Feed in 2011.',
+        description: 'It was React that made \'liking\' and commenting on your friend\'s posts possible.'
+      }, {
+        title: 'React was open-sourced at JSConf US in May 2013.',
+        description: 'React is maintained by Instagram, Facebook, and a community of individual developers and corporations.'
+      }, {
+        title: 'React is the 6th most starred project of all time on GitHub.',
+        description: 'Today, websites like Netflix, Airbnb, The New York Times, Tesla, Instagram, and more use React.' 
+      }];
+
       class App extends React.Component {
         render() {
           return (
@@ -25,10 +49,7 @@
                 An interactive flash cards app.
               </p>
               <div className="card-list">
-                {<Card
-                  title={'JavaScript History and How it Led to ReactJS.'}
-                  description={'React started as a JavaScript port of XHP, a version of PHP which Facebook released four years ago.'}
-                />}
+                {cardData.map((card, index) => <Card key={index} title={card.title} description={card.description} />)}
               </div>
             </div>
           );
