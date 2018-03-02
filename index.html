@@ -9,8 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.0.0/umd/react-dom.development.js"></script>
     <!-- add css styelsheet-->
     <link rel="stylesheet" type="text/css" href="index.css"></link>
-    <!--12: -->
-    <!--11: Added buttons, and added onClicks with functions. -->
+    <!--12: Added shuffleForward method and shuffleBackward method.-->
+    <!--13:  -->
   </head>
   <body>
     <div id="app"></div>
@@ -52,11 +52,17 @@
         }
 
         shuffleBackward = () => {
-          console.log('Shuffle Backward!');
+          {/*console.log('Shuffle Backward!');*/}
+          const { cardData } = this.state;
+          const newCardData = [cardData[6],...cardData.slice(0,6)];
+          this.setState({ cardData: newCardData });
         }
 
         shuffleForward = () => {
-          console.log('Shuffle Forward!');
+          {/*console.log('Shuffle Forward!');*/}
+          const { cardData } = this.state;
+          const newCardData = [...cardData.slice(1), cardData[0]];
+          this.setState({ cardData: newCardData });
         }
 
         render() {
